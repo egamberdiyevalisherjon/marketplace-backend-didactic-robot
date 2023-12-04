@@ -1,0 +1,307 @@
+{
+  "swagger": "2.0",
+  "info": {},
+  "basePath": "/api/v1",
+  "host": "qoplar.herokuapp.com",
+  "tags": [
+    { "name": "AUTH" },
+    { "name": "CATEGORY" },
+    { "name": "PRODUCT" },
+    { "name": "USER" }
+  ],
+  "schemes": ["https"],
+  "paths": {
+    "/auth": {
+      "post": {
+        "tags": ["AUTH"],
+        "summary": "Login User",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": ["USER"],
+        "summary": "Create User",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+          },
+          {
+            "name": "name",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "get": {
+        "tags": ["USER"],
+        "summary": "Get All Users"
+      }
+    },
+    "/users/:id": {
+      "put": {
+        "tags": ["USER"],
+        "summary": "Update User",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "get": {
+        "tags": ["USER"],
+        "summary": "Get User"
+      }
+    },
+    "/users/info": {
+      "get": {
+        "tags": ["USER"],
+        "summary": "Get User Info"
+      }
+    },
+    "/categories": {
+      "post": {
+        "tags": ["CATEGORY"],
+        "summary": "Create Category",
+        "parameters": [
+          {
+            "name": "uz",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ru",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "get": {
+        "tags": ["CATEGORY"],
+        "summary": "Get All Categories"
+      }
+    },
+    "/categories/:id": {
+      "put": {
+        "tags": ["CATEGORY"],
+        "summary": "Update Category",
+        "parameters": [
+          {
+            "name": "uz",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ru",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "get": {
+        "tags": ["CATEGORY"],
+        "summary": "Get Category"
+      }
+    },
+    "/products": {
+      "post": {
+        "tags": ["PRODUCT"],
+        "summary": "Create Product",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "required": true,
+            "type": "object",
+            "example": "{ uz: string, ru: string }"
+          },
+          {
+            "name": "meta",
+            "in": "body",
+            "required": true,
+            "type": "string",
+            "example": "{ title: string, desc: string, keywords: string }"
+          },
+          {
+            "name": "exists",
+            "in": "body",
+            "type": "boolean",
+            "value": "true | false"
+          },
+          {
+            "name": "price",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "color",
+            "in": "body",
+            "required": true,
+            "type": "string",
+            "example": "{ uz: string, ru: string }"
+          },
+          {
+            "name": "description",
+            "in": "body",
+            "required": true,
+            "type": "string",
+            "example": "{ uz: string, ru: string }"
+          },
+          {
+            "name": "image",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sale",
+            "in": "body",
+            "type": "boolean",
+            "value": "true | false"
+          }
+        ]
+      },
+      "get": {
+        "tags": ["PRODUCT"],
+        "summary": "Get All Products"
+      }
+    },
+    "/products/:id": {
+      "put": {
+        "tags": ["PRODUCT"],
+        "summary": "Update Product",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "type": "object",
+            "example": "{ uz: string, ru: string }"
+          },
+          {
+            "name": "meta",
+            "in": "body",
+            "type": "string",
+            "example": "{ title: string, desc: string, keywords: string }"
+          },
+          {
+            "name": "exists",
+            "in": "body",
+            "type": "boolean",
+            "value": "true | false"
+          },
+          {
+            "name": "price",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "color",
+            "in": "body",
+            "type": "string",
+            "example": "{ uz: string, ru: string }"
+          },
+          {
+            "name": "description",
+            "in": "body",
+            "type": "string",
+            "example": "{ uz: string, ru: string }"
+          },
+          {
+            "name": "image",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "sale",
+            "in": "body",
+            "type": "boolean",
+            "value": "true | false"
+          }
+        ]
+      },
+      "get": {
+        "tags": ["PRODUCT"],
+        "summary": "Get Product"
+      }
+    },
+    "/products/category/:id": {
+      "get": {
+        "tags": ["PRODUCT"],
+        "summary": "Get Product By Category"
+      }
+    }
+  }
+}

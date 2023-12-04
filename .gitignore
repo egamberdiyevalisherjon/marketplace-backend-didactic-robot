@@ -1,0 +1,39 @@
+/node_modules/
+client/node_modules/
+WPMS.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### WebStorm IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+'.idea' 
+'*.mvn' 
+app-wpms-server/.mvn
+app-wpms-server/mvnw
+app-wpms-server/mvnw.cmd
+build/
+*.env
