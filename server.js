@@ -1,4 +1,5 @@
 /* Config */
+
 require("dotenv").config({ path: "./.env" });
 
 const { createInitAdmin } = require("./Utils/dataInit");
