@@ -284,58 +284,56 @@
             "in": "body",
             "required": true,
             "type": "object",
-            "example": "{ uz: string, ru: string }"
-          },
-          {
-            "name": "meta",
-            "in": "body",
-            "required": true,
-            "type": "string",
-            "example": "{ title: string, desc: string, keywords: string }"
+            "example": "{ uz: 'Sharf', ru: 'Шарф' }"
           },
           {
             "name": "exists",
             "in": "body",
             "type": "boolean",
-            "value": "true | false"
+            "value": "true | false",
+            "example": "true"
           },
           {
             "name": "price",
             "in": "body",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "example": "99.99"
           },
           {
             "name": "color",
             "in": "body",
             "required": true,
             "type": "string",
-            "example": "{ uz: string, ru: string }"
+            "example": "{ uz: 'Qizil', ru: 'Красный' }"
           },
           {
             "name": "description",
             "in": "body",
             "required": true,
             "type": "string",
-            "example": "{ uz: string, ru: string }"
+            "example": "{ uz: 'Yuqori sifatli va chiroyli', ru: 'Качественный и красивый' }"
           },
           {
             "name": "image",
             "in": "body",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "example": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg/1200px-John_Doe%2C_born_John_Nommensen_Duchac.jpg"
           },
           {
             "name": "category",
             "in": "body",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "example": "656effc26ccf0816bcada164"
           },
           {
             "name": "sale",
             "in": "body",
             "type": "boolean",
-            "value": "true | false"
+            "value": "true | false",
+            "example": "false"
           }
         ]
       },
