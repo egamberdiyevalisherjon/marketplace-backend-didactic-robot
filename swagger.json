@@ -32,7 +32,7 @@
         ]
       }
     },
-    "/client-login": {
+    "/auth/client-login": {
       "post": {
         "tags": ["AUTH"],
         "summary": "Login Client",
@@ -52,7 +52,7 @@
         ]
       }
     },
-    "/register": {
+    "/auth/register": {
       "post": {
         "tags": ["AUTH"],
         "summary": "Register Client",
