@@ -29,7 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/v1/products", ProtectedRoute, ProductRoute);
+app.use("/api/v1/products", ProductRoute);
 app.use("/api/v1/categories", ProtectedRoute, ProductCategoryRoute);
 app.use("/api/v1/clients", ClientRoute, ClientsRoute);
 app.use("/api/v1/users", AdminRoute, UserRoute);
