@@ -11,7 +11,7 @@ exports.create = catchAsync(async (req, res) => {
 
   await user.save();
 
-  res.send(user);
+  res.status(201).send(user);
 });
 
 exports.update = catchAsync(async (req, res) => {

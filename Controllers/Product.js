@@ -1,12 +1,9 @@
-const fs = require("fs");
-const path = require("path");
-
 const Product = require("../Models/Product");
 const catchAsync = require("../Utils/catchAsync");
 
 exports.create = catchAsync(async (req, res) => {
   const product = await Product.create(req.body);
-  res.send(product);
+  res.status(201).send(product);
 });
 
 exports.getAll = catchAsync(async (req, res, next) => {

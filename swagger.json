@@ -7,7 +7,8 @@
     { "name": "AUTH" },
     { "name": "CATEGORY" },
     { "name": "PRODUCT" },
-    { "name": "USER" }
+    { "name": "USER" },
+    { "name": "CLIENT" }
   ],
   "schemes": ["https"],
   "paths": {
@@ -16,6 +17,52 @@
         "tags": ["AUTH"],
         "summary": "Login User",
         "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/client-login": {
+      "post": {
+        "tags": ["AUTH"],
+        "summary": "Login Client",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/register": {
+      "post": {
+        "tags": ["AUTH"],
+        "summary": "Register Client",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "phoneNumber",
             "in": "body",
@@ -102,6 +149,69 @@
       "get": {
         "tags": ["USER"],
         "summary": "Get User Info"
+      }
+    },
+    "/clients": {
+      "get": {
+        "tags": ["CLIENT"],
+        "summary": "Get All Clients"
+      }
+    },
+    "/clients/:id": {
+      "put": {
+        "tags": ["CLIENT"],
+        "summary": "Update Client",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "get": {
+        "tags": ["CLIENT"],
+        "summary": "Get Client"
+      }
+    },
+    "/clients/me": {
+      "get": {
+        "tags": ["CLIENT"],
+        "summary": "Get Client Info"
+      }
+    },
+    "/clients/cart": {
+      "post": {
+        "tags": ["CLIENT"],
+        "summary": "Add product to cart",
+        "parameters": [
+          {
+            "name": "product",
+            "in": "body",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "quantity",
+            "in": "body",
+            "required": true,
+            "type": "string",
+            "example": "5"
+          }
+        ]
       }
     },
     "/categories": {
