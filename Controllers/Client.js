@@ -16,14 +16,18 @@ exports.create = catchAsync(async (req, res) => {
 });
 
 exports.addToCart = catchAsync(async (req, res) => {
-  if (!Array.isArray(req.body))
-    return res.status(400).json({
-      message: "Not an array",
-    });
-  const cartItems = req.body.map((i) => ({
-    ...i,
-    product: new mongoose.Types.ObjectId(i.product),
-  }));
+  let cartItems;
+  if (Array.isArray(req.body))
+    cartItems = req.body.map((i) => ({
+      ...i,
+      product: new mongoose.Types.ObjectId(i.product),
+    }));
+  else
+    cartItems = {
+      ...req.body,
+      product: new mongoose.Types.ObjectId(req.body.product),
+    };
+
   let client = await Client.findByIdAndUpdate(
     req.client._id,
     { $push: { cart: cartItems } },
