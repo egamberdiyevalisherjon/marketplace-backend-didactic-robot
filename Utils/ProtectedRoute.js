@@ -3,7 +3,7 @@ const User = require("../Models/User");
 
 module.exports = ProtectedRoute = async (req, res, next) => {
   const token = req.headers.authorization?.split(" ");
-  if (!token || !token[0] === "Bearer")
+  if (!token || token[0] !== "Bearer")
     return res.status(401).json({
       message: "Unauthorized",
     });
