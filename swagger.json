@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {},
   "basePath": "/api/v1",
-  "host": "qoplar.herokuapp.com",
+  "host": "localhost:5050",
   "tags": [
     { "name": "AUTH" },
     { "name": "CATEGORY" },
@@ -10,7 +10,7 @@
     { "name": "USER" },
     { "name": "CLIENT" }
   ],
-  "schemes": ["https"],
+  "schemes": ["http"],
   "paths": {
     "/auth": {
       "post": {
@@ -340,6 +340,21 @@
       "get": {
         "tags": ["PRODUCT"],
         "summary": "Get All Products"
+      }
+    },
+    "/products/search": {
+      "get": {
+        "tags": ["PRODUCT"],
+        "summary": "Search Product",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "example": "sharf"
+          }
+        ]
       }
     },
     "/products/:id": {

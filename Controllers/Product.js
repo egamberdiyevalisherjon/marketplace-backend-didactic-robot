@@ -12,6 +12,20 @@ exports.getAll = catchAsync(async (req, res, next) => {
   res.status(200).json(data);
 });
 
+exports.searchProduct = catchAsync(async (req, res, next) => {
+  let text = req.query.q;
+  const data = await Product.find({
+    $or: [
+      {
+        "name.uz": { $regex: text, $options: "i" },
+        "name.ru": { $regex: text, $options: "i" },
+      },
+    ],
+  }).populate("category");
+
+  res.status(200).json(data);
+});
+
 exports.getOne = catchAsync(async (req, res, next) => {
   const { _id } = req.params;
   const product = await Product.findOne({ _id });
