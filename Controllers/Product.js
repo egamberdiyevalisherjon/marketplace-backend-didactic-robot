@@ -2,7 +2,17 @@ const Product = require("../Models/Product");
 const catchAsync = require("../Utils/catchAsync");
 
 exports.create = catchAsync(async (req, res) => {
-  const product = await Product.create(req.body);
+  const { name, ...rest } = req.body;
+
+  if (
+    !name?.uz ||
+    !name?.ru ||
+    (rest.description && (!rest.description.uz || !rest.description.ru)) ||
+    (rest.color && (!rest.color.uz || !rest.color.ru))
+  )
+    return res.status(400).json({ message: "Bad Request" });
+
+  const product = await Product.create({ ...rest, name });
   res.status(201).send(product);
 });
 
