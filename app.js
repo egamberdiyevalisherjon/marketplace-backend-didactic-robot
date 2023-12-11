@@ -14,7 +14,6 @@ const UserRoute = require("./Routes/User");
 const ClientsRoute = require("./Routes/Client");
 const AuthRoute = require("./Routes/Auth");
 
-const ProtectedRoute = require("./Utils/ProtectedRoute");
 const AdminRoute = require("./Utils/AdminRoute");
 const ClientRoute = require("./Utils/ClientRoute");
 
@@ -30,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/products", ProductRoute);
-app.use("/api/v1/categories", ProtectedRoute, ProductCategoryRoute);
+app.use("/api/v1/categories", ProductCategoryRoute);
 app.use("/api/v1/clients", ClientRoute, ClientsRoute);
 app.use("/api/v1/users", AdminRoute, UserRoute);
 app.use("/api/v1/auth", AuthRoute);
